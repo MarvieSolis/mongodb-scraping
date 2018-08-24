@@ -1,0 +1,109 @@
+body, html {
+    background-image: url('../images/pageBack.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#logobar {
+    height: 75px;
+    width: 100%;
+    background-image: url("../images/logoBack.jpg");
+}
+
+#logobarLogo {
+    height: 70px;
+}
+
+#navbar {
+    height: 50px;
+    width: 100%;
+    margin-bottom: 25px;
+    background-color: #000;
+}
+
+#navbarLeft {
+    display: inline-block;
+    float: left;
+}
+
+#navbarRight {
+    display: inline-block;
+    float: right;
+}
+
+.navbarText {
+    font-size: 25px;
+    margin: 10px 0px 10px 0px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.navbarSlogan {
+    font-style: italic;
+    color: white;
+}
+
+.navbarLinks {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+
+    transition: all 1s;
+}
+
+.navbarLinks:hover {
+    color: orangered;
+    text-decoration: none;
+}
+
+
+
+.articleWrapper {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.articleMain {
+    background-color: rgb(237, 237, 237, 0.7);
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.articleImage {
+    height: 150px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.articleHeadline {
+    font-size: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.articleAuthor {
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: orangered;
+}
+
+.articleTime {
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #666;
+}
+
+.articleLink {
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: orange;
+
+    transition: all 1s;
+}
+
+.articleLink:hover {
+    color: black;
+    text-decoration: none;
+}
