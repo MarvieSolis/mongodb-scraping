@@ -6,7 +6,7 @@ console.log("\n***********************************\n" +
             "from SBNation:" +
             "\n***********************************\n");
 
-request("https://www.sbnation.com/nba-news-basketball", function(error, response, html) {
+request("https://www.celticsblog.com/2018/8/23/17752368/rap-hip-hop-jayson-tatum-gucci-mane-boston-celtics-basketball-nba-lebron-james-michael-jordan", function(error, response, html) {
 
 
   var $ = cheerio.load(html);
@@ -14,28 +14,12 @@ request("https://www.sbnation.com/nba-news-basketball", function(error, response
   var results = [];
 
  // Grabbing from SB Nation
-  $("div.c-entry-box--compact--article").each(function(i, element) {
+ $("section.l-wrapper").each(function (i, element) {
+     var summary = $(element).find("h2.c-entry-summary").text();
 
-    var title = $(element).find("div.c-entry-box--compact__body").find("h2.c-entry-box--compact__title").find("a").html();
+  results.push(summary);
 
-    var createdAt = $(element).find("div.c-entry-box--compact__body").find("div.c-byline").find("span.c-byline__item").find("time.c-byline__item").attr("datetime");
-    
-    var author = $(element).find("div.c-entry-box--compact__body").find("div.c-byline").find("span.c-byline__item").find("a").html();
- 
-    var link = $(element).children().attr("href");
-
-    var image0 = $(element).find("a.c-entry-box--compact__image-wrapper").find("div.c-entry-box--compact__image").find("noscript").html();
-
-    var image = $(image0).attr("src");
-
-    results.push({
-      title: title,
-      author: author,
-      link: link,
-      image: image,
-      createdAt: createdAt
-    });
-  });
+ });
 
   console.log(results);
 });

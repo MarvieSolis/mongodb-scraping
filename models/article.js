@@ -1,5 +1,7 @@
 var mongoose = require("mongoose");
 
+var Schema = mongoose.Schema;
+
 var articleSchema = new mongoose.Schema({
 	title: {
 		type: String, 
@@ -16,7 +18,11 @@ var articleSchema = new mongoose.Schema({
 	createdAt: {
 		type: Date, 
 		default: Date.now
-	}
+	},
+	comment: [{
+		type: Schema.Types.ObjectId,
+		ref: "Comment"
+	}]
 });
 
 var Article = mongoose.model("Articles", articleSchema);

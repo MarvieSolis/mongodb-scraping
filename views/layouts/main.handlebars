@@ -45,23 +45,22 @@
     <!--Nav Bar-->
     <div id="navbar" class="container-fluid">
         <span id="navbarLeft">
-            <h3 class="navbarText navbarSlogan">Your source for basketball news</h3>
+            <a class="navbarText navbarLinks" href="/scrape">Scrape</a>
         </span>
         <span id="navbarRight">
-            <a href="#articles">
-                <h3 class="navbarText navbarLinks">Articles</h3>
+            <h3 class="navbarText navbarSortBy">Sort By:</h3>
+            <a href="/articles/new">
+                <h3 class="navbarText navbarLinks">Newest</h3>
             </a>
-            <a href="#saved">
-                <h3 class="navbarText navbarLinks">Saved</h3>
+            <a href="/articles/old">
+                <h3 class="navbarText navbarLinks">Oldest</h3>
             </a>
         </span>
     </div>
 
     <!--Articles-->
     <div class="container">
-        <div class="row justify-content-center">
-                {{{body}}}
-        </div>
+        {{{body}}}
     </div>
 
 

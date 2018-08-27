@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-md-10 articleMain">
+        <div class="articleWrapper">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <a href={{articlePrev.article.link}} target="_blank">
+                        <img class="articleImage" src={{articlePrev.article.image}}>
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <h1 class="articleHeadline">{{{articlePrev.article.title}}}</h1>
+                    <h2 class="articleAuthor">{{articlePrev.article.author}}</h2>
+                    <h2 class="articleTime">{{articlePrev.article.createdAt}}</h2>
+                    <span>
+                        <a class="articleLink" href="{{articlePrev.article.link}}" target="_blank">View Full Story</a>
+                    </span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <h3 class="description">Super Short Summary</h3>
+                    <p class="articleBody">{{articlePrev.summary}}</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <h3 class="description">Comments</h3>
+                </div>
+            </div>
+            {{#if article.comment}} {{#each article.comment}}
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <p class="userComment">{{name}}</p>
+                </div>
+                <div class="col-md-7">
+                    <p class="userComment">{{body}}</p>
+                </div>
+            </div>
+            {{/each}} {{else}}
+            <p class="noComment">Be the first to comment!</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h2>Comment</h2>
+    </div>
+</div>

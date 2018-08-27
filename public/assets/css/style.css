@@ -36,6 +36,11 @@ body, html {
     font-size: 25px;
     margin: 10px 0px 10px 0px;
     font-family: 'Josefin Sans', sans-serif;
+    display: inline-block;
+}
+
+.navbarSortBy {
+    color: #AAA;
 }
 
 .navbarSlogan {
@@ -99,6 +104,7 @@ body, html {
     font-size: 15px;
     font-family: 'Josefin Sans', sans-serif;
     color: orange;
+    margin-right: 20px;
 
     transition: all 1s;
 }
@@ -106,4 +112,31 @@ body, html {
 .articleLink:hover {
     color: black;
     text-decoration: none;
+}
+
+.articleComment {
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: red;
+
+    transition: all 1s;
+}
+
+.articleComment:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.description {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+}
+
+.articleBody {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-style: initial;
 }

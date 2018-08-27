@@ -3,11 +3,12 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var commentSchema = new mongoose.Schema({
-	articleId: {
+	name: {
 		type: String
 	},
 	comment: {
-		type: String
+		type: String,
+		require: true
 	},
 	createdAt: {
 		type: Date, 
@@ -15,6 +16,6 @@ var commentSchema = new mongoose.Schema({
 	}
 });
 
-var Comments = mongoose.model("Comments", commentSchema);
+var Comment = mongoose.model("Comment", commentSchema);
 
-module.exports = Comments;
+module.exports = Comment;
