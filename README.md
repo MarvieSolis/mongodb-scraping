@@ -9,11 +9,32 @@ This program utilizes **MongoDB**, **node**, **cheerio**, **handlebars**, **jQue
 
 
 ## Screenshots
+**Home screen:** Shows all the articles.
+![homescreenshot](https://user-images.githubusercontent.com/36168517/44650566-cf6f4100-a99b-11e8-94f0-523c5b82899c.PNG)
+
+**Article Detail:** Shows information from the article with the addition of a short summary.
+![detailscreenshot](https://user-images.githubusercontent.com/36168517/44650613-e7df5b80-a99b-11e8-8459-283dc2280fc2.PNG)
+
+**Comments:** Part of the Article Detail page, here is a form to post a comment.
+![commentscreenshot](https://user-images.githubusercontent.com/36168517/44650612-e7df5b80-a99b-11e8-801f-809f69ac3141.PNG)
 
 
-## Getting started
-People can learn more about the different tools and languages used by clicking the following links: [jQuery.com](https://www.jquery.com/) - [w3schools](https://www.w3schools.com/jquery/default.asp) - [express](https://www.npmjs.com/package/express) - [MySQL](https://www.mysql.com/).
+## Technologies Used
+- [MongoDB](https://www.mongodb.com/)
+- [Express](https://expressjs.com/)
+- [Express-Handlbars](https://github.com/ericf/express-handlebars)
+- [Mongoose](https://mongoosejs.com/)
+- [Body-Parser](https://www.npmjs.com/package/body-parser)
+- [Cheerio](https://github.com/cheeriojs/cheerio)
+- [Request](https://github.com/request/request)
+- [jQuery](https://jquery.com/)
+
+
+## JSON
+The JSON of the articles and comments can be seen by going to these links:
+- [Articles](https://marvie-c-solis-news-scraper.herokuapp.com/json-article)
+- [Comments](https://marvie-c-solis-news-scraper.herokuapp.com/json-comment)
 
 
 ## The Site is live!
-[Click here to see the page on Heroku!](https://marvie-c-solis-eat-the-burger.herokuapp.com/)
+[Click here to see the page on Heroku!](https://marvie-c-solis-news-scraper.herokuapp.com/)
