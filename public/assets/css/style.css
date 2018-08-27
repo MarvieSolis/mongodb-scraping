@@ -41,6 +41,7 @@ body, html {
 
 .navbarSortBy {
     color: #AAA;
+    font-size: 18px;
 }
 
 .navbarSlogan {
@@ -85,7 +86,6 @@ body, html {
 
 .articleHeadline {
     font-size: 30px;
-    font-size: 2vw;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -135,11 +135,10 @@ body, html {
 .articleBody {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-    font-size: 1.5vw;
+    font-size: 16px;
     font-style: italic;
     color: #444;
-    margin: 50px 40px 100px 40px;
+    margin: 80px 40px 100px 40px;
 }
 
 .noComment {
@@ -160,4 +159,49 @@ body, html {
 form {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
+}
+
+.commentFormHeader {
+    text-align: center;
+    font-size: 30px;
+}
+
+#submitButton {
+    background-color: orangered;
+
+    transition: all 1s;
+}
+
+#submitButton:hover {
+    background-color: orange;
+}
+
+.userName {
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+.userComment {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+.userCommentSection {
+    margin-top: 10px;
+}
+
+.deleteComment {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: red;
+
+    transition: all 1s;
+}
+
+.deleteComment:hover {
+    color: black;
 }

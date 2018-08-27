@@ -95,8 +95,17 @@ router.get('/delete', function (req, res) {
         }
 
     });
-    res.redirect('/json');
+    Comment.remove({}, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('removed all comments');
+        }
+
+    });
+    res.redirect('/json-article');
 });
+
 
 
 
@@ -205,7 +214,8 @@ router.post('/comment/:id', function(req, res) {
   
     var commentObj = {
       name: user,
-      comment: content
+      comment: content,
+      linkedArticle: articleId
     };
 
     var newComment = new Comment(commentObj);
@@ -214,21 +224,47 @@ router.post('/comment/:id', function(req, res) {
         if (err) {
             console.log(err);
         } else {
-            console.log(result._id)
-            console.log(articleId)
+            console.log(result);
             Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'comment':result._id}}, {new: true})
-              //execute everything
-              .exec(function(err, doc) {
+              // redirect
+              .exec(function(err, response) {
                   if (err) {
                       console.log(err);
                   } else {
                       res.redirect('/read/' + articleId);
                   }
               });
-          }
+        }
     });
   });
   
+
+
+  // Delete comment for article
+router.get('/deletecomment/:id', function(req, res){
+
+    var link = "";
+
+    Comment.findOne({"_id": req.params.id})
+        .exec(function(err, response) {
+            if (err) {
+                throw err;
+            } else {
+                link = response.linkedArticle;
+                Comment.remove({'_id': req.params.id}).exec(function(err, data){
+                    if(err){
+                      console.log(err);
+                    } else {
+                      console.log("Comment deleted");
+                    }
+                    res.redirect('/read/' + link);
+                  })
+            }
+    });
+    console.log(link);
+
+
+});
 
 
 module.exports = router;

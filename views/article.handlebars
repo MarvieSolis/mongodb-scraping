@@ -28,13 +28,20 @@
                     <h3 class="description">Comments</h3>
                 </div>
             </div>
-            {{#if article.comment}} {{#each article.comment}}
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <p class="userComment">{{name}}</p>
+            {{#if articlePrev.article.comment}} {{#each articlePrev.article.comment}}
+            <div class="row justify-content-center userCommentSection">
+                <div class="col-md-2">
+                    <p class="userName">{{name}}:</p>
                 </div>
-                <div class="col-md-7">
-                    <p class="userComment">{{body}}</p>
+                <div class="col-md-6">
+                    <p class="userComment">"{{comment}}"</p>
+                </div>
+                <div class="col-md-2">
+                    <form action="/deletecomment/{{_id}}" method="GET">
+                        <button class="deleteComment">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             {{/each}} {{else}}
@@ -46,15 +53,15 @@
 
 <div class="row justify-content-center">
     <div class="col-md-10 formWrapper">
-        <h2>Comment</h2>
+        <h2 class="commentFormHeader">Leave a comment</h2>
         <form action="/comment/{{articlePrev.article._id}}" method="POST">
             <div class="form-group">
                 <label for="userName">Name</label>
-                <input type="name" class="form-control" id="userName" name="name" placeholder="Enter name here">
+                <input type="text" class="form-control" id="userName" name="name" placeholder="Enter name here">
             </div>
             <div class="form-group">
                 <label for="userComment">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
             </div>
             <button type="submit" value="submit" id="submitButton" class="btn">Post</button>
 

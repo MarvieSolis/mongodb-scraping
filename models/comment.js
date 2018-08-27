@@ -10,6 +10,10 @@ var commentSchema = new mongoose.Schema({
 		type: String,
 		require: true
 	},
+	linkedArticle: {
+		type: String,
+		required: true
+	},
 	createdAt: {
 		type: Date, 
 		default: Date.now
