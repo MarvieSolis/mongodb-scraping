@@ -2,12 +2,12 @@
     <div class="col-md-10 articleMain">
         <div class="articleWrapper">
             <div class="row justify-content-center">
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <a href={{articlePrev.article.link}} target="_blank">
                         <img class="articleImage" src={{articlePrev.article.image}}>
                     </a>
                 </div>
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     <h1 class="articleHeadline">{{{articlePrev.article.title}}}</h1>
                     <h2 class="articleAuthor">{{articlePrev.article.author}}</h2>
                     <h2 class="articleTime">{{articlePrev.article.createdAt}}</h2>
@@ -17,9 +17,10 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-auto">
-                    <h3 class="description">Super Short Summary</h3>
-                    <p class="articleBody">{{articlePrev.summary}}</p>
+                <div class="col-lg-auto">
+                    <div class="text-wrapper">
+                        <p class="articleBody">"{{articlePrev.summary}}"</p>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -44,7 +45,19 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-10">
+    <div class="col-md-10 formWrapper">
         <h2>Comment</h2>
+        <form action="/comment/{{articlePrev.article._id}}" method="POST">
+            <div class="form-group">
+                <label for="userName">Name</label>
+                <input type="name" class="form-control" id="userName" name="name" placeholder="Enter name here">
+            </div>
+            <div class="form-group">
+                <label for="userComment">Comment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+            </div>
+            <button type="submit" value="submit" id="submitButton" class="btn">Post</button>
+
+        </form>
     </div>
 </div>

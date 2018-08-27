@@ -85,24 +85,8 @@ router.get("/scrape", function (req, res) {
 
 
 
-// Send articles through INDEX Newest to Oldest
-router.get('/articles/new', function (req, res) {
-    Article.find().sort({ _id: 1 })
-        //send to handlebars
-        .exec(function (err, content) {
-            if (err) {
-                console.log(err);
-            } else {
-                var sentArticle = { article: content };
-                res.render('index', sentArticle);
-            }
-        });
-});
-
-
-
-//clear all articles for testing purposes
-router.get('/clearAll', function (req, res) {
+// deletes all articles
+router.get('/delete', function (req, res) {
     Article.remove({}, function (err, doc) {
         if (err) {
             console.log(err);
@@ -135,7 +119,7 @@ router.get('/articles/old', function (req, res) {
 
 
 // Send articles through INDEX Newest to Oldest
-router.get('/comment/:id', function (req, res) {
+router.get('/articles/new', function (req, res) {
     Article.find().sort({ _id: 1 })
         //send to handlebars
         .exec(function (err, content) {
@@ -152,8 +136,18 @@ router.get('/comment/:id', function (req, res) {
 
 
 // This will get the articles we scraped from the mongoDB in JSON
-router.get('/json', function (req, res) {
+router.get('/json-article', function (req, res) {
     Article.find({}, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+        }
+    });
+});
+
+router.get('/json-comment', function (req, res) {
+    Comment.find({}, function (err, doc) {
         if (err) {
             console.log(err);
         } else {
@@ -190,8 +184,6 @@ router.get('/read/:id', function (req, res) {
                     $("section.l-wrapper").each(function (i, element) {
                         articlePrev.summary = $(element).find("h2.c-entry-summary").text();
 
-                        console.log(articlePrev);
-
                         res.render('article', {articlePrev});
 
                         return false;
@@ -202,6 +194,41 @@ router.get('/read/:id', function (req, res) {
         });
 
 });
+
+
+
+// Create a new comment
+router.post('/comment/:id', function(req, res) {
+    var user = req.body.name;
+    var content = req.body.comment;
+    var articleId = req.params.id;
+  
+    var commentObj = {
+      name: user,
+      comment: content
+    };
+
+    var newComment = new Comment(commentObj);
+  
+    newComment.save(function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(result._id)
+            console.log(articleId)
+            Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'comment':result._id}}, {new: true})
+              //execute everything
+              .exec(function(err, doc) {
+                  if (err) {
+                      console.log(err);
+                  } else {
+                      res.redirect('/read/' + articleId);
+                  }
+              });
+          }
+    });
+  });
+  
 
 
 module.exports = router;
